@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除重复</title>
+</head>
+<body>
+	<input type="text" name="">
+	<button>清除</button>
+	<div></div>
+</body>
+<script type="text/javascript">
+	var ipt=document.querySelector("input");
+	var btn=document.querySelector("button");
+	var div=document.querySelector("div");
+	var arr;
+	btn.onclick=function(){
+		//转换字符串为数组
+		arr=ipt.value.split(",");
+
+		div.innerHTML="<br />清除前："+arr;
+
+		for(var i=0;i<arr.length;i++){
+
+			var tmep=arr[i];
+			
+			for(var j=i+1;j<arr.length;j++){
+
+				//判断第一个和其他有没重复
+				if(tmep==arr[j]){
+
+					arr.splice(j,1);
+				}
+			}
+		}
+		div.innerHTML+="<hr />清除后："+arr;
+	}
+</script>
+</html>
